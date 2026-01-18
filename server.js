@@ -12,14 +12,14 @@ app.use(express.json())
 const uri = "mongodb+srv://eventevent:yrQMsUszdNQa51Zw@cluster0.7xap9dx.mongodb.net/?appName=Cluster0";
 
 const client = new MongoClient(uri, {
-    serverApi: {
+    serverApi: {    
         version: ServerApiVersion.v1,
         strict: true,
         deprecationErrors: true,
     }
 });
 
-async function run() {
+async function run() {      
     try {
         // Connect the client to the server	(optional starting in v4.7)
         await client.connect();
@@ -32,7 +32,7 @@ async function run() {
 
         app.get('/details', async (req, res) => {
             const result = await details.find().toArray()
-            res.send(result)
+            res.send(result)     
         })
 
         app.delete('/details/:id', async (req, res) => {
